@@ -8,13 +8,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Environment variables for GitHub and Discord
-GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
-GITHUB_USERNAME = os.environ.get('GITHUB_USERNAME')
+G_TOKEN = os.environ.get('G_TOKEN')
+G_USERNAME = os.environ.get('G_USERNAME')
 DISCORD_TOKEN = os.environ.get('DISCORD_TOKEN')
 REPO_OWNER = os.environ.get('REPO_OWNER')  # e.g., 'prabinpanta0'
 REPO_NAME = os.environ.get('REPO_NAME')    # e.g., 'F-U'
 
-headers = {'Authorization': f'token {GITHUB_TOKEN}'}
+headers = {'Authorization': f'token {G_TOKEN}'}
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -27,7 +27,7 @@ def get_following():
     following = []
     page = 1
     while True:
-        url = f'https://api.github.com/users/{GITHUB_USERNAME}/following?per_page=100&page={page}'
+        url = f'https://api.github.com/users/{G_USERNAME}/following?per_page=100&page={page}'
         response = requests.get(url, headers=headers)
         data = response.json()
         if not data:
@@ -41,7 +41,7 @@ def get_followers():
     followers = []
     page = 1
     while True:
-        url = f'https://api.github.com/users/{GITHUB_USERNAME}/followers?per_page=110&page={page}'
+        url = f'https://api.github.com/users/{G_USERNAME}/followers?per_page=110&page={page}'
         response = requests.get(url, headers=headers)
         data = response.json()
         if not data:
