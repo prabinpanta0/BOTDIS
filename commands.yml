@@ -1,0 +1,26 @@
+
+  - name: viewfollowers
+    description: Shows the number of followers on GitHub
+
+  - name: viewfollowing
+    description: Shows the number of users you are following on GitHub
+
+  - name: run
+    description: Runs the Follow-Unfollow bot
+
+  - name: listfollowers
+    description: Lists the first n followers
+    options:
+      - name: n
+        description: The number of followers to list
+        type: 4  # integer
+        required: true
+
+  - name: listfollowing
+    description: Lists the first n users you are following
+    options:
+      - name: n
+        description: The number of following users to list
+        type: 4  # integer
+        required: true
+
